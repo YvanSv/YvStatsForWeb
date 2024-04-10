@@ -5,6 +5,9 @@
         </div>
     {% if app.user %}
         <div>
+        {% if app.user.roles[0] != 'ROLE_ARTIST' %}
+            <a href="{{ path("app_create_music")}}"><img src={{asset('/img/plus.png')}} alt="logo new music" width="50px"/></a>
+        {% endif %}
             <a href="{{ path("app_modif_user")}}"><img src={{asset('/img/bonhomme.png')}} alt="logo profil" width="50px"/></a>
         </div>
     {% else %}

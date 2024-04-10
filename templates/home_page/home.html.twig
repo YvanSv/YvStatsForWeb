@@ -1,18 +1,20 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Accueil - YvStats !{% endblock %}
+{% block title %}Accueil{% endblock %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{asset("styles/home.css")}}">
+{% endblock %}
 
 {% block body %}
-{#<style>
-    .example-wrapper { margin: 1em auto; width: 95%; font: 18px/1.5 sans-serif; align: "center"; }
-    .example-wrapper code { padding: 2px 6px; }
-    .footer { margin: 15px; position: absolute; bottom: 0; }
-</style>#}
-
-{% if app.user %}
-    <h1>{{app.user.username}}</h1>
-{% else %}
-    <h1>not connected</h1>
-{% endif %}
-
+<div class="accueil">
+    <div class="en_cours">
+        <div class="liste">
+            <h3>Listening in progress</h3>
+        </div>
+    </div>
+    <div class="">
+        
+    </div>
+</div>
 {% endblock %}

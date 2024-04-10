@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\UserRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
@@ -35,6 +37,17 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
 
     #[ORM\Column(length: 40)]
     private ?string $username = null;
+
+    /**
+     * @var Collection<int, Music>
+     */
+    #[ORM\ManyToMany(targetEntity: Music::class, mappedBy: 'artist')]
+    private Collection $music_released;
+
+    public function __construct()
+    {
+        $this->music_released = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -119,6 +132,33 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     public function setUsername(string $username): static
     {
         $this->username = $username;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Music>
+     */
+    public function getMusicReleased(): Collection
+    {
+        return $this->music_released;
+    }
+
+    public function addMusicReleased(Music $musicReleased): static
+    {
+        if (!$this->music_released->contains($musicReleased)) {
+            $this->music_released->add($musicReleased);
+            $musicReleased->addArtist($this);
+        }
+
+        return $this;
+    }
+
+    public function removeMusicReleased(Music $musicReleased): static
+    {
+        if ($this->music_released->removeElement($musicReleased)) {
+            $musicReleased->removeArtist($this);
+        }
 
         return $this;
     }
