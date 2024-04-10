@@ -1,0 +1,27 @@
+{% extends 'base.html.twig' %}
+{% block title %}Login - YvStats{% endblock %}
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{asset("styles/login.css")}}">
+{% endblock %}
+{% block body %}
+<div class="background">
+    <div class="shape"></div>
+    <div class="shape"></div>
+</div>
+<form method="post">
+    <h3>Login Here</h3>
+    {% if error %}
+        <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+    {% endif %}
+
+    <label for="inputUsername">User ID</label>
+    <input type="text" value="{{ last_username }}" name="uuid" id="inputUuid" class="form-control" autocomplete="username" required autofocus placeholder="User ID">
+    <label for="inputPassword">Password</label>
+    <input type="password" name="password" id="inputPassword" class="form-control" autocomplete="current-password" required placeholder="Password">
+
+    <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
+
+    <button class="login" type="submit">Log In</button>
+    <button class="register" onclick="window.location.href='{{ path("app_register") }}'">No account ? Register</button></a>
+</form>
+{% endblock %}

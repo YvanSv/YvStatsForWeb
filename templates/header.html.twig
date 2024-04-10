@@ -1,0 +1,15 @@
+<div id="header" class="header">
+    <h1><a href="{{ path("app_home_page")}}">YvStats</a></h1>
+        <div>
+            <h2><a href="{{ path("app_most_listened")}}">Most Listened</a></h2>
+        </div>
+    {% if app.user %}
+        <div>
+            {#<a href="{{ path("app_modif_user")}}"><img src={{asset('/img/bonhomme.png')}} alt="logo profil" width="50px"/></a>#}
+        </div>
+    {% else %}
+        <div>
+            <a href="{{ path("app_login")}}"><img src={{asset('/img/bonhomme.png')}} alt="logo connexion" width="50px"/></a>
+        </div>
+    {% endif %}
+</div>

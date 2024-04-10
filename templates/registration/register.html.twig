@@ -1,0 +1,31 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Register{% endblock %}
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{asset("styles/login.css")}}">
+{% endblock %}
+
+{% block body %}
+<div class="background">
+    <div class="shape"></div>
+    <div class="shape"></div>
+</div>
+{{ form_start(registrationForm) }}
+    <h3>Register Here</h3>
+    <label>User ID</label>
+    {{ form_widget(registrationForm.uuid, {'attr': {'placeholder': 'User ID*', 'class': 'form-control'}}) }}
+    {{ form_errors(registrationForm.uuid) }}
+
+    <label>Username</label>
+    {{ form_widget(registrationForm.username, {'attr': {'placeholder': 'Username*', 'class': 'form-control'}}) }}
+    {{ form_errors(registrationForm.username) }}
+
+
+    <label>Password</label>
+    {{ form_widget(registrationForm.plainPassword, {'attr': {'placeholder': 'Password*', 'class': 'form-control'}}) }}
+    {{ form_errors(registrationForm.plainPassword) }}
+
+    <button class="login" type="submit">Create account</button>
+    <button class="register" onclick="window.location.href='{{ path("app_login") }}'">Already created ? Login</button></a>
+{{ form_end(registrationForm) }}
+{% endblock %}
