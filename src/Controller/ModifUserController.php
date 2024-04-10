@@ -26,19 +26,8 @@ class ModifUserController extends AbstractController
         $form = $this->createForm(ModifUserCoordType::class, $user);
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
-            /*$user->setLogin($form->get('login')->getData());
-            $user->setNom($form->get('nom')->getData());
-            $user->setPrenom($form->get('prenom')->getData());
-            $user->setEmail($form->get('email')->getData());
-            $user->setDateNaissance($form->get('date_naissance')->getData());
-            $user->setAdresse($form->get('adresse')->getData());
-            $user->setCodePostal($form->get('code_postal')->getData());
-            $user->setVille($form->get('ville')->getData());
-            $user->setTelephone($form->get('telephone')->getData());*/
-   
             $entityManager->persist($user);
             $entityManager->flush();
-            // do anything else you need here, like send an email
 
             return $this->redirectToRoute('app_modif_user');
         }
@@ -81,7 +70,7 @@ class ModifUserController extends AbstractController
             
             return $this->redirectToRoute('app_modif_user');
         }
-        return $this->render('security/modifUserMdp.html.twig', [
+        return $this->render('security/modifyUserPassword.html.twig', [
             'modifPasswordForm' => $form
         ]);
     }
