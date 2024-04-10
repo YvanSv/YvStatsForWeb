@@ -1,0 +1,77 @@
+.en_cours {
+    width: 17%;
+}
+
+.liste{
+    height: 800px;
+    width: 100%;
+    background-color: rgba(255,255,255,0.13);
+    margin-top: 10%;
+    border-radius: 10px;
+    backdrop-filter: blur(10px);
+    border: 2px solid rgba(255,255,255,0.1);
+    box-shadow: 0 0 40px rgba(8,7,16,0.6);
+    padding: 50px 35px;
+}
+.liste *{
+    font-family: 'Trebuchet MS',sans-serif;
+    color: #ffffff;
+    letter-spacing: 0.5px;
+    outline: none;
+    border: none;
+}
+.liste h3{
+    margin-top: -20px;
+    font-size: 32px;
+    font-weight: 500;
+    line-height: 42px;
+    text-align: center;
+}
+label{
+    display: block;
+    margin-top: 30px;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+/*.alert.alert-danger {
+    color: red;
+}
+
+button {
+    cursor: pointer;
+}
+
+.form-control {
+    width: 500px;
+    font-size: 15px;
+    padding: 5px 0;
+    margin: 5px;
+}
+
+#tag {
+    color: white;
+    border-radius: 10px;
+    padding: 4px;
+    border: 0px;
+}
+
+.tag_service {
+    background-color: rgba(0, 145, 24, 0.952);
+}
+
+.btn-like {
+    background-color: transparent;
+    border: 0px #ccc;
+    padding: 5px 10px;
+    cursor: pointer;
+    font-size: 30px;
+}
+
+.aime {
+    color: red;
+}
+
+.non_aime {
+    color: lightgray;
+}  */
