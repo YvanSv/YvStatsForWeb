@@ -1,0 +1,28 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Account details{% endblock %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{asset("styles/modif.css")}}">
+{% endblock %}
+
+{% block body %}
+<div class="background">
+    <div class="shape"></div>
+    <div class="shape"></div>
+</div>
+<div class="liste">
+    <button role="button" onclick="window.location.href='{{ path("app_user_coord") }}'">Consulter mon profil</button>
+    <button role="button" onclick="window.location.href='{{ path("app_modif_user_coord") }}'">Modifier mes coordonnées</button>
+    <button role="button" onclick="window.location.href='{{ path("app_modif_user_mdp") }}'">Modifier mon mot de passe X</button>
+    <button role="button" onclick="window.location.href='{{ path("app_logout") }}'">Se déconnecter</button>
+    <button role="button" id="deleteAccountButton">Supprimer mon compte</button>
+
+    <script>
+        document.getElementById('deleteAccountButton').addEventListener('click', function() {
+            var confirmation = confirm('Êtes-vous sûr de vouloir supprimer votre compte ?');
+            if (confirmation) window.location.href = '{{ path("app_delete_user") }}';
+        });
+    </script>
+</div>
+{% endblock %}
