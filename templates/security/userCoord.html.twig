@@ -15,6 +15,8 @@
     <ul>
         <li><strong>User ID:</strong> {{ user.uuid }}</li>
         <li><strong>Username:</strong> {{ user.username }}</li>
+        <li><strong>Spotify username:</strong> {{ user.spotifyusername }}</li>
+        <li><strong>Spotify link or ID:</strong> {{ user.spotifyid }}</li>
     </ul>
     <button class="btn-connexion2" onclick="window.location.href='{{ path("app_modif_user") }}'">Retour</button>
 </div>

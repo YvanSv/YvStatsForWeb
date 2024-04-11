@@ -1,5 +1,20 @@
+.accueil {
+    display: flex;
+}
 .en_cours {
     width: 17%;
+}
+.main {
+    padding: 1%;
+    width: 83%;
+    text-align: center;
+}
+.incrustation {
+    margin: 10px;
+    width: 90%;
+}
+.gauche {
+    text-align: left;
 }
 
 .liste{

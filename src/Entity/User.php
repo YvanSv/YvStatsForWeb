@@ -44,6 +44,15 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\ManyToMany(targetEntity: Music::class, mappedBy: 'artist')]
     private Collection $music_released;
 
+    #[ORM\Column(length: 255, nullable: true)]
+    private ?string $spotify_username = null;
+
+    #[ORM\Column(length: 255, nullable: true)]
+    private ?string $spotify_password = null;
+
+    #[ORM\Column(length: 255, nullable: true)]
+    private ?string $spotify_id = null;
+
     public function __construct()
     {
         $this->music_released = new ArrayCollection();
@@ -159,6 +168,42 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         if ($this->music_released->removeElement($musicReleased)) {
             $musicReleased->removeArtist($this);
         }
+
+        return $this;
+    }
+
+    public function getSpotifyUsername(): ?string
+    {
+        return $this->spotify_username;
+    }
+
+    public function setSpotifyUsername(?string $spotify_username): static
+    {
+        $this->spotify_username = $spotify_username;
+
+        return $this;
+    }
+
+    public function getSpotifyPassword(): ?string
+    {
+        return $this->spotify_password;
+    }
+
+    public function setSpotifyPassword(?string $spotify_password): static
+    {
+        $this->spotify_password = $spotify_password;
+
+        return $this;
+    }
+
+    public function getSpotifyId(): ?string
+    {
+        return $this->spotify_id;
+    }
+
+    public function setSpotifyId(?string $spotify_id): static
+    {
+        $this->spotify_id = $spotify_id;
 
         return $this;
     }

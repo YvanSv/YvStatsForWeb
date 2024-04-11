@@ -14,6 +14,9 @@ class ModifUserCoordType extends AbstractType
         $builder
             ->add('uuid')
             ->add('username')
+            ->add('spotify_username')
+            ->add('spotify_password')
+            ->add('spotify_id')
         ;
     }
 

@@ -22,6 +22,18 @@
     {{ form_widget(modifUserCoordForm.username, {'attr': {'placeholder': 'Username*', 'class': 'form-control'}}) }}
     {{ form_errors(modifUserCoordForm.username) }}
 
+    <label for="inputPassword">Spotify username</label>
+    {{ form_widget(modifUserCoordForm.spotify_username, {'attr': {'placeholder': 'Spotify username', 'class': 'form-control'}}) }}
+    {{ form_errors(modifUserCoordForm.spotify_username) }}
+
+    <label for="inputPassword">Spotify password</label>
+    {{ form_widget(modifUserCoordForm.spotify_password, {'attr': {'placeholder': 'Spotify password', 'class': 'form-control'}}) }}
+    {{ form_errors(modifUserCoordForm.spotify_password) }}
+
+    <label for="inputPassword">Spotify link or ID</label>
+    {{ form_widget(modifUserCoordForm.spotify_id, {'attr': {'placeholder': 'Spotify link or ID', 'class': 'form-control'}}) }}
+    {{ form_errors(modifUserCoordForm.spotify_id) }}
+
     <button type="submit" class="">Save</button>
     <button class="btn-connexion2" onclick="window.location.href='{{ path("app_modif_user") }}'">Back to menu</button>
 {{ form_end(modifUserCoordForm) }}

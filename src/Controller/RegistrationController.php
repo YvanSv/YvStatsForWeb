@@ -42,18 +42,36 @@ class RegistrationController extends AbstractController
     }
 
     #[Route('/art', name: 'app_ajouter_art')]
-    public function art(Request $request, UserPasswordHasherInterface $userPasswordHasher, EntityManagerInterface $entityManager): Response
+    public function art(EntityManagerInterface $entityManager): Response
     {
         $user = $this->getUser();
         if ($user) {
             $roles = $user->getRoles();
             $roles[] = 'ROLE_ARTIST';
             $user->setRoles($roles);
+            $entityManager->persist($user);
+            $entityManager->flush();
             return $this->render('home_page/home.html.twig', []);
         } else {
             return $this->render('security/userCoord.html.twig', []);
         }
-        
+    }
 
+    #[Route('/user', name: 'app_supprimer_art')]
+    public function user(EntityManagerInterface $entityManager): Response
+    {
+        $user = $this->getUser();
+        if ($user) {
+            $roles[] = 'ROLE_USER';
+            $user->setRoles($roles);
+            $entityManager->persist($user);
+            $entityManager->flush();
+            return $this->render('home_page/home.html.twig', []);
+        } else {
+            return $this->render('security/login.html.twig', [
+                'last_username' => "",
+                'error' => null
+            ]);
+        }
     }
 }

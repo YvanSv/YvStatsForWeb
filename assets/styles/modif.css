@@ -14,11 +14,11 @@ button {
   width: 100%;
 }
 .liste{
-    height: 600px;
+    height: 85%;
     width: 400px;
     background-color: rgba(255,255,255,0.13);
     position: absolute;
-    transform: translate(-50%,-50%);
+    transform: translate(-50%,-35%);
     top: 50%;
     left: 50%;
     border-radius: 10px;
